@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApocalypseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,13 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('apocalypse/create', [ApocalypseController::class, 'create'])->name('apocalypse.create');
+Route::post('apocalypse', [ApocalypseController::class, 'store'])->name('apocalypse.store');
+Route::get('campaign', [CampaignController::class, 'index']);
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    // Route::get('apocalypse/create', [ApocalypseController::class, 'create']);
+    // Route::get('campaign', [CampaignController::class, 'index']);
+    //Route::resource('apocalypse', 'ApocalypseController');
+});
