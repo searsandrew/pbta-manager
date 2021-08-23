@@ -20,8 +20,8 @@ class CreateCharactersTable extends Migration
             $table->text('story')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->bigInteger('class_id')->unsigned();
-            $table->foreign('class_id')->references('id')->on('classes');
+            $table->bigInteger('type_id')->unsigned();
+            $table->foreign('type_id')->references('id')->on('types');
             $table->timestamps();
         });
     }
