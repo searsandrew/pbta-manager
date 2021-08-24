@@ -1,4 +1,4 @@
-# Mulder (a Powered By the Apocalypse manager)
+# Mulder (a PBTA manager)
 
 **Repository**
 
@@ -17,7 +17,7 @@ Mulder is open-sourced software licensed under the [MIT license](https://opensou
 **Features**
 * User Permissions, with User assignment controls.
 * Homepage/Landing page.
-* Ability to add any PBTA module
+* Ability to add any Powered By The Apocalypse module
 * Create campaigns, add players, a
 * Auditing tools to keep track of changes.
 * Multi-lingual support.
