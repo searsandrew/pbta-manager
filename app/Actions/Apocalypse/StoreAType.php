@@ -8,7 +8,7 @@ use Illuminate\Validation\Validator;
 use App\Models\Apocalypse;
 use Illuminate\Support\Str;
 
-class StoreAClass
+class StoreAType
 {
     use AsAction;
 

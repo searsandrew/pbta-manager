@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ApocalypseController;
 use App\Actions\Apocalypse\StoreAnApocalypse;
-use App\Actions\Apocalypse\StoreAClass;
+use App\Actions\Apocalypse\StoreAType;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +25,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::post('apocalypse', StoreAnApocalypse::class)->name('apocalypse.store');
-Route::post('class', StoreAClass::class)->name('class.store');
+Route::post('type', StoreAType::class)->name('type.store');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
@@ -33,9 +33,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return view('apocalypse.create');
     })->name('apocalypse.create');
 
-    Route::get('apocalypse/{apocalypse}/class/create', function($apocalypse) {
-        return view('class.create', compact('apocalypse'));
-    })->name('class.create');
+    Route::get('apocalypse/{apocalypse}/type/create', function($apocalypse) {
+        return view('type.create', compact('apocalypse'));
+    })->name('type.create');
 
     Route::get('campaign/create', function() {
         return view('campaign.create');
