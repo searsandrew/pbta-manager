@@ -21,9 +21,9 @@ class input extends Component
     {
         $this->name = $name;
         $this->heading = $heading;
-        $this->value = $value;
-        $this->disabled = $disabled;
-        $this->help = $help;
+        $this->value = isset($value) ? $value : false;
+        $this->disabled = isset($disabled) ? $disabled : false;
+        $this->help = isset($help) ? $help : false;
     }
 
     /**
