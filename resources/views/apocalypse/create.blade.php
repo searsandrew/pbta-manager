@@ -12,7 +12,7 @@
                 <div class="grid grid-cols-4 gap-4">
                     <div class="col-span-4 grid grid-cols-1">
                         <x-input name="name" heading="{{ __('Name') }}" value="" :disabled="false" :help="false" />
-                        <x-input name="stats" heading="{{ __('Stats') }}" help="{{ __('Use a comma-seperated list for each stat name') }}" value="" :disabled="false" :help="false" />
+                        <x-input name="stats" heading="{{ __('Stats') }}" help="{{ __('Use a comma-seperated list for each stat name') }}" value="" :disabled="false" />
                         <div class="grid grid-cols-4 gap-3">
                             <x-input name="luck" heading="{{ __('Luck') }}" value="" :disabled="false" :help="false" />
                             <x-input name="harm" heading="{{ __('Harm') }}" value="" :disabled="false" :help="false" />
