@@ -6,11 +6,7 @@ use Illuminate\View\Component;
 
 class input extends Component
 {
-    public $name;
-    public $heading;
-    public $value;
-    public $disabled;
-    public $help;
+    public $name, $heading, $value, $disabled, $help;
 
     /**
      * Create a new component instance.
@@ -33,7 +29,6 @@ class input extends Component
      */
     public function render()
     {
-        dd($this->disabled);
         return view('components.input');
     }
 }
