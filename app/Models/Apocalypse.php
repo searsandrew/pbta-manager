@@ -21,4 +21,9 @@ class Apocalypse extends Model
     {
         return 'slug';
     }
+
+    public function types()
+    {
+        return $this->hasMany(Type::class);
+    }
 }

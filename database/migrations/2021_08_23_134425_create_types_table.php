@@ -15,10 +15,12 @@ class CreateTypesTable extends Migration
     {
         Schema::create('types', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('apocalypse_id')->unsigned();
+            $table->foreign('apocalypse_id')->references('id')->on('apocalypses');
             $table->string('slug')->unique();
             $table->string('name');
             $table->string('flavor');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->enum('type', ['pc', 'npc', 'all'])->default('pc');
             $table->json('rules');
 

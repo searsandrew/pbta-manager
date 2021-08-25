@@ -10,7 +10,7 @@ class Type extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $fillable = ['slug', 'name', 'stats', 'defaults'];
+    public $fillable = ['slug', 'name', 'flavor', 'type', 'rules', 'attacks', 'gear', 'moves', 'special', 'luck', 'history', 'looks', 'ratings', 'improvements'];
 
     /**
      * Set the route key name to slug
@@ -20,5 +20,10 @@ class Type extends Model
     public function getRouteKeyName() : string
     {
         return 'slug';
+    }
+
+    public function apocalypse()
+    {
+        return $this->belongsTo(Apocalypse::class);
     }
 }

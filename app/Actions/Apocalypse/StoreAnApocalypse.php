@@ -58,8 +58,8 @@ class StoreAnApocalypse
             'experience' => $request->experience,
         ]);
 
-        $this->handle($request->name, json_encode($arraySlugged), $defaults);
+        $apocalypse = $this->handle($request->name, json_encode($arraySlugged), $defaults);
 
-        return redirect(route('class.create'));
+        return redirect(route('type.create', $apocalypse));
     }
 }
