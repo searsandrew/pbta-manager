@@ -17,7 +17,7 @@ class input extends Component
      *
      * @return void
      */
-    public function __construct($name, $heading, string $value = '', bool $disabled = false, bool $help = false)
+    public function __construct($name, $heading, string $value = '', bool $disabled = false, mixed $help = false)
     {
         $this->name = $name;
         $this->heading = $heading;
@@ -33,6 +33,7 @@ class input extends Component
      */
     public function render()
     {
+        dd($this->disabled);
         return view('components.input');
     }
 }
