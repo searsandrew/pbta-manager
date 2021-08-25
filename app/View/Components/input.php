@@ -7,7 +7,7 @@ use Illuminate\View\Component;
 class input extends Component
 {
     public $name;
-    public $label;
+    public $heading;
     public $value;
     public $disabled;
     public $help;
@@ -20,7 +20,7 @@ class input extends Component
     public function __construct($name, $heading, $value = '', $disabled = false, $help = false)
     {
         $this->name = $name;
-        $this->label = $heading;
+        $this->heading = $heading;
         $this->value = $value;
         $this->disabled = $disabled;
         $this->help = $help;
