@@ -2,12 +2,13 @@
 
 namespace App\Actions\Apocalypse;
 
-use Lorisleiva\Actions\Concerns\AsAction;
-use Lorisleiva\Actions\ActionRequest;
-use Illuminate\Validation\Validator;
 use App\Models\Apocalypse;
 use App\Models\Campaign;
+use Faker\Factory as Faker;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Validator;
+use Lorisleiva\Actions\ActionRequest;
+use Lorisleiva\Actions\Concerns\AsAction;
 
 use Auth;
 
@@ -17,10 +18,12 @@ class StartACampaign
 
     public function handle($name, $apocalypse) : Campaign
     {
-        return Auth::user()->campaign()->create([
-            'slug' => Str::slug($this->name . '-' . Str::random(8), '-'),
+        $name = Faker::create()->lexify('???');
+        return Campaign::create([
+            'slug' => Str::slug($name . '-' . Str::random(8), '-'),
             'name' => $name,
-            'apocalypse_id' => $apocalypse,
+            'apocalypse_id' => $apocalypse->id,
+            'user_id' => Auth::user()->id,
         ]);
     }
 
@@ -32,13 +35,6 @@ class StartACampaign
     public function authorize(ActionRequest $request): bool
     {
         return true;
-    }
-
-    public function rules(): array
-    {
-        return [
-            'name' => 'required|string',
-        ];
     }
 
     public function asController(ActionRequest $request, Apocalypse $apocalypse)

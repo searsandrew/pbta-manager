@@ -17,8 +17,8 @@ class CreateCampaignTable extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('name');
-            $table->bigInteger('host_id')->unsigned();
-            $table->foreign('host_id')->references('id')->on('users');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('apocalypse_id')->unsigned();
             $table->foreign('apocalypse_id')->references('id')->on('apocalypses');
             $table->timestamps();

@@ -10,7 +10,7 @@ class Campaign extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $fillable = ['slug', 'name', 'apocalypse_id'];
+    public $fillable = ['slug', 'name', 'apocalypse_id', 'user_id'];
 
     /**
      * Set the route key name to slug

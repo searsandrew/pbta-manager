@@ -2,6 +2,8 @@
 
 use App\Models\Apocalypse;
 use App\Http\Controllers\ApocalypseController;
+use App\Http\Livewire\Campaign as CampaignView;
+use App\Models\Campaign;
 use App\Actions\Apocalypse\StartACampaign;
 use App\Actions\Apocalypse\StoreAnApocalypse;
 use App\Actions\Apocalypse\StoreAType;
@@ -28,7 +30,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::post('apocalypse', StoreAnApocalypse::class)->name('apocalypse.store');
 Route::post('apocalypse/{apocalypse}/type', StoreAType::class)->name('type.store');
-Route::post('campaign', StartACampaign::class)->name('campaign.create');
+Route::post('apocalypse/{apocalypse}/campaign', StartACampaign::class)->name('campaign.store');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
@@ -40,7 +42,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return view('type.create', compact('apocalypse'));
     })->name('type.create');
 
-    Route::get('campaign/create', function() {
-        return view('campaign.create');
-    })->name('campaign.create');
+    Route::get('campaign', function() {
+        $campaigns = Campaign::all();
+        return view('campaign.index', compact('campaigns'));
+    });
+    Route::get('campaign/{campaign}', CampaignView::class)->name('campaign.show');
 });

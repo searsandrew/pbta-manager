@@ -19,7 +19,7 @@
                                 <a class="rounded-md border border-gray-300">
                                     {{ $apocalypse->name }}
                                 </a>
-                                <form method="POST" action="{{ route('campaign.create') }}">
+                                <form method="POST" action="{{ route('campaign.store', $apocalypse) }}">
                                     @csrf
                                     <button type="submit" class="rounded-full py-1 px-2 mt-6 border-2 border-green-600 text-green-600 items-center justify-center hover:outline-none hover:ring-4 hover:ring-green-500 hover:ring-opacity-50 hover:bg-green-100 hover:border-transparent">Create Campaign</button>
                                 </form>
